@@ -4,27 +4,39 @@ using UnityEngine;
 
 public class movingScript : MonoBehaviour {
 
-	// Use this for initialization
+	public GameObject camera;
+	public float speedH = 2.0f;
+	public float speedV = 2.0f;
+
+	private float yaw = 0.0f;
+	private float pitch = 0.0f;
+
 	void Start () {
 		
 	}
 	
 	void FixedUpdate () {
 
-		if (Input.GetKey ("up")) {
-			GetComponent<Rigidbody> ().AddForce (Vector3.forward * 15f);
+
+		yaw += speedH * Input.GetAxis("Mouse X");
+		pitch -= speedV * Input.GetAxis("Mouse Y");
+
+		transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+
+		if (Input.GetKey ("w")) {
+			GetComponent<Rigidbody> ().AddForce (camera.transform.forward * 15f);
 		}
 
-		if (Input.GetKey ("left")) {
-			GetComponent<Rigidbody> ().AddForce (Vector3.left * 15f);
+		if (Input.GetKey ("a")) {
+			GetComponent<Rigidbody> ().AddForce (camera.transform.right * -15f);
 		}
 
-		if (Input.GetKey ("right")) {
-			GetComponent<Rigidbody> ().AddForce (Vector3.right * 15f);
+		if (Input.GetKey ("d")) {
+			GetComponent<Rigidbody> ().AddForce (camera.transform.right * 15f);
 		}
 
-		if (Input.GetKey ("down")) {
-			GetComponent<Rigidbody> ().AddForce (Vector3.back * 15f);
+		if (Input.GetKey ("s")) {
+			GetComponent<Rigidbody> ().AddForce (camera.transform.forward * -15f);
 		} 
 	}
 }
