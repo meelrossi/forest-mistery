@@ -11,32 +11,47 @@ public class movingScript : MonoBehaviour {
 	private float yaw = 0.0f;
 	private float pitch = 0.0f;
 
+	private float dt;
+
+	private float speed = 2.0f;
+
+	private Animation anim;
+
 	void Start () {
-		
+		dt = Time.deltaTime;
+		anim = GetComponent<Animation> ();
 	}
 	
 	void FixedUpdate () {
 
-
-		yaw += speedH * Input.GetAxis("Mouse X");
-		pitch -= speedV * Input.GetAxis("Mouse Y");
-
-		transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+		float xAngle = transform.eulerAngles.x;
+		float yAngle = camera.transform.eulerAngles.y;
 
 		if (Input.GetKey ("w")) {
-			GetComponent<Rigidbody> ().AddForce (camera.transform.forward * 15f);
+			transform.eulerAngles = new Vector3 (xAngle, yAngle, 0.0f);
+			transform.Translate (Vector3.forward * speed * dt);
+			anim.Play ("Walk");
 		}
 
 		if (Input.GetKey ("a")) {
-			GetComponent<Rigidbody> ().AddForce (camera.transform.right * -15f);
+			transform.eulerAngles = new Vector3 (xAngle, yAngle - 90.0f, 0);
+			transform.Translate (Vector3.forward * speed * dt);
+			anim.Play ("Walk");
 		}
 
 		if (Input.GetKey ("d")) {
-			GetComponent<Rigidbody> ().AddForce (camera.transform.right * 15f);
+			transform.eulerAngles = new Vector3 (xAngle, yAngle + 90.0f, 0);
+			transform.Translate (Vector3.forward * speed * dt);
+			anim.Play ("Walk");
 		}
 
 		if (Input.GetKey ("s")) {
-			GetComponent<Rigidbody> ().AddForce (camera.transform.forward * -15f);
+			transform.eulerAngles = new Vector3 (xAngle, yAngle + 180.0f, 0);
+			transform.Translate (Vector3.forward * speed * dt);
+			anim.Play ("Walk");
 		} 
+		if (!anim.isPlaying) {
+			anim.Play ("Wait");
+		}
 	}
 }
