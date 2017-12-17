@@ -5,10 +5,15 @@ using UnityEngine;
 public class BallDetection : MonoBehaviour {
 
 	public GameObject cube;
+	public string animation;
 	bool canInteract = false;
+	 
+
+	private Animation anim;
 
 	void Start () {
 		cube.SetActive (false);
+		anim = GetComponent<Animation> ();
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -23,7 +28,13 @@ public class BallDetection : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (Input.GetKey ("e") && canInteract) {
-			//show canvas.
+			//showTaskCanvas();
+			taskCompleted();
 		}
+	}
+
+	void taskCompleted() {
+		anim.Play (animation);
+		cube.SetActive (false);
 	}
 }
