@@ -7,8 +7,6 @@ public class SlimeScript : MonoBehaviour {
 	public GameObject notYetPanel;
 	public GameObject cube;
 
-	public bool questionValidation;
-
 	bool canInteract = false;
 
 	void Start () {
@@ -18,23 +16,31 @@ public class SlimeScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		cube.SetActive(true);
-		canInteract = true;
+		if (other.CompareTag("boy"))
+		{
+			cube.SetActive(true);
+			canInteract = true;
+		}
+
 
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		cube.SetActive(false);
-		notYetPanel.SetActive(false);
-		canInteract = false;
+		if (other.CompareTag("boy"))
+		{
+			cube.SetActive(false);
+			notYetPanel.SetActive(false);
+			canInteract = false;
+		}
 	}
 
 	void FixedUpdate()
 	{
 		if (Input.GetKey("e") && canInteract)
 		{
-			if (ForestMisteryController.instance.allQuestionsAnswered() || !questionValidation)
+			Debug.Log("DAsdasd");
+			if (ForestMisteryController.instance.allQuestionsAnswered())
 			{
 				QuestionPanel.instance.setQuestion(LevelController.instance.level.questions[ForestMisteryController.instance.answeredQuestions]);
 				cube.SetActive(false);

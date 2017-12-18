@@ -18,7 +18,7 @@ public class BallDetection : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (!alreadyVisited)
+		if (!alreadyVisited && other.CompareTag("boy"))
 		{
 			cube.SetActive(true);
 			canInteract = true;
@@ -27,8 +27,12 @@ public class BallDetection : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other) {
-		cube.SetActive (false);
-		canInteract = false;
+		if (other.CompareTag("boy"))
+		{
+			cube.SetActive(false);
+			canInteract = false;
+		}
+
 	}
 
 	void FixedUpdate() {

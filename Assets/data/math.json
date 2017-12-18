@@ -1,34 +1,40 @@
 {
   "name": "MATEMÁTICA",
+  "final_puzzle": "Hola",
   "questions": [
     {
       "title": "Multiplicación",
       "question": "100 x 10",
       "options": [ "1100", "110", "100", "1000"],
+      "clue": "Hola",
       "answer": 3
     },
     {
       "title": "Multiplicación decimales",
       "question": "0.56 x 4",
       "options": [ "1,22", "4,56", "2,24", "4"],
+      "clue": "Hola2",
       "answer": 2
     },
     {
       "title": "División varios dígitos",
       "question": "105 ÷ 21",
       "options": [ "5", "4,5", "3", "8"],
+      "clue": "Hola3",
       "answer": 0
     },
     {
       "title": "Restar decimales",
       "question": "0.9-0.7",
       "options": [ "2", "1", "0.2", "0.1"],
+      "clue": "Hola4",
       "answer": 2
     },
     {
       "title": "Comparación decimales",
       "question": "0.085 ? 85 milésimas",
       "options": [ ">", "<", "=", "/"],
+      "clue": "Hola5",
       "answer": 2
     }
   ]

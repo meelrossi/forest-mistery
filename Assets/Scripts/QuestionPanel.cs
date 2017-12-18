@@ -14,6 +14,9 @@ public class QuestionPanel : MonoBehaviour {
 	public Toggle option3;
 	public Toggle option4;
 
+	public Text clueText;
+	public RawImage sadFace;
+
 	public ToggleGroup group;
 
 	public Button continueButton;
@@ -49,6 +52,8 @@ public class QuestionPanel : MonoBehaviour {
 		confirmButton.gameObject.SetActive(true);
 		continueButton.gameObject.SetActive(false);
 		gameObject.SetActive(true);
+		sadFace.gameObject.SetActive(false);
+		clueText.gameObject.SetActive(false);
 		currentQuestion = q;
 
 		title.text = q.title;
@@ -68,11 +73,14 @@ public class QuestionPanel : MonoBehaviour {
 		{
 			selected.GetComponentInChildren<Text>().color = Color.green;
 			ForestMisteryController.instance.CorrectAnswer();
+			clueText.gameObject.SetActive(true);
+			clueText.text = "Pista: " + currentQuestion.clue;
 		}
 		else {
 			selected.GetComponentInChildren<Text>().color = Color.red;
 			options[currentQuestion.answer].GetComponentInChildren<Text>().color = Color.green;
 			ForestMisteryController.instance.WrongAnswer();
+			sadFace.gameObject.SetActive(true);
 		}
 	}
 

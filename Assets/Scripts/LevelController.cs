@@ -40,10 +40,10 @@ public class LevelController : MonoBehaviour {
 				{
 					options.Add(each["options"][j]);
 				}
-				Question q = new Question(each["title"], each["question"], options, each["answer"]);
+				Question q = new Question(each["title"], each["question"], options, each["answer"], each["clue"]);
 				questions.Add(q);
 			}
-			level = new Level(json["name"], questions);
+			level = new Level(json["name"], questions, json["final_puzzle"]);
 		}
 	}
 }
