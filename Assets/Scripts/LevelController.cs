@@ -43,7 +43,6 @@ public class LevelController : MonoBehaviour {
 				Question q = new Question(each["title"], each["question"], options, each["answer"]);
 				questions.Add(q);
 			}
-
 			level = new Level(json["name"], questions);
 		}
 	}

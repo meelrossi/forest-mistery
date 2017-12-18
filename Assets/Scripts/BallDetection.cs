@@ -7,7 +7,8 @@ public class BallDetection : MonoBehaviour {
 	public GameObject cube;
 	public string animation;
 	bool canInteract = false;
-	 
+	bool alreadyVisited = false;
+
 
 	private Animation anim;
 
@@ -17,8 +18,12 @@ public class BallDetection : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		cube.SetActive (true);
-		canInteract = true;
+		if (!alreadyVisited)
+		{
+			cube.SetActive(true);
+			canInteract = true;
+		}
+
 	}
 
 	void OnTriggerExit(Collider other) {
@@ -27,15 +32,15 @@ public class BallDetection : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (Input.GetKey ("e") && canInteract) {
-			Debug.Log(LevelController.instance.level.questions.Count);
-			QuestionPanel.instance.setQuestion(LevelController.instance.level.questions[0]);
+		if (Input.GetKey ("e") && canInteract && !alreadyVisited) {
+			alreadyVisited = true;
+			QuestionPanel.instance.setQuestion(LevelController.instance.level.questions[ForestMisteryController.instance.answeredQuestions]);
 			taskCompleted();
 		}
 	}
 
 	void taskCompleted() {
+		cube.SetActive(false);
 		anim.Play (animation);
-		cube.SetActive (false);
 	}
 }

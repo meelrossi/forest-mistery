@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ForestMisteryController : MonoBehaviour {
 
 	public static ForestMisteryController instance = null;
+
+	public Text answeredQuestionsText;
+	public int answeredQuestions;
 	
 	int score;
 	Level level;
@@ -23,7 +27,23 @@ public class ForestMisteryController : MonoBehaviour {
 
 	void Start()
 	{
-		score = 0;
 		LevelController.instance.LoadLevelData();
+		score = 0;
+		answeredQuestions = 0;
+		answeredQuestionsText.text = answeredQuestions + "/" + LevelController.instance.level.questions.Count;
 	}
+
+	public void CorrectAnswer()
+	{
+		answeredQuestions += 1;
+		answeredQuestionsText.text = answeredQuestions + "/" + LevelController.instance.level.questions.Count;
+		score += 10;
+	}
+
+	public void WrongAnswer()
+	{
+		answeredQuestions += 1;
+		answeredQuestionsText.text = answeredQuestions + "/" + LevelController.instance.level.questions.Count;
+	}
+
 }
