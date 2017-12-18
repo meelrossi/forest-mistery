@@ -2,7 +2,7 @@
 
 public static class LevelInfo
 {
-	private static string level;
+	private static string level = "math";
 
 	public static string Level
 	{

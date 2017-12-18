@@ -28,7 +28,7 @@ public class BallDetection : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (Input.GetKey ("e") && canInteract) {
-			Debug.Log("dasdad");
+			Debug.Log(LevelController.instance.level.questions.Count);
 			QuestionPanel.instance.setQuestion(LevelController.instance.level.questions[0]);
 			taskCompleted();
 		}

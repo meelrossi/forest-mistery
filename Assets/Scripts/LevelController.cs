@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using SimpleJSON;
 
 public class LevelController : MonoBehaviour {
 
@@ -25,12 +26,25 @@ public class LevelController : MonoBehaviour {
 	}
 
 	public void LoadLevelData () {
-		string filePath = Path.Combine(Application.dataPath, levelDataFolder);
-
+		string filePath = Path.Combine(Application.dataPath, levelDataFolder + LevelInfo.Level + ".json");
 		if (File.Exists(filePath))
 		{
 			string dataAsJson = File.ReadAllText(filePath);
-			level = JsonUtility.FromJson<Level>(dataAsJson);
+			var json = JSON.Parse(dataAsJson);
+			List<Question> questions = new List<Question>();
+			for (int i = 0; i < json["questions"].AsArray.Count; i++)
+			{
+				var each = json["questions"][i];
+				List<string> options = new List<string>();
+				for (int j = 0; j < each["options"].AsArray.Count; j++)
+				{
+					options.Add(each["options"][j]);
+				}
+				Question q = new Question(each["title"], each["question"], options, each["answer"]);
+				questions.Add(q);
+			}
+
+			level = new Level(json["name"], questions);
 		}
 	}
 }
