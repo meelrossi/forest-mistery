@@ -9,6 +9,7 @@ public class ForestMisteryController : MonoBehaviour {
 
 	public Text answeredQuestionsText;
 	public int answeredQuestions;
+	public GameObject winPanel;
 	
 	int score;
 	Level level;
@@ -31,6 +32,7 @@ public class ForestMisteryController : MonoBehaviour {
 		score = 0;
 		answeredQuestions = 0;
 		answeredQuestionsText.text = answeredQuestions + "/" + LevelController.instance.level.questions.Count;
+		winPanel.SetActive(false);
 	}
 
 	public void CorrectAnswer()
@@ -44,6 +46,12 @@ public class ForestMisteryController : MonoBehaviour {
 	{
 		answeredQuestions += 1;
 		answeredQuestionsText.text = answeredQuestions + "/" + LevelController.instance.level.questions.Count;
+	}
+
+
+	public bool allQuestionsAnswered()
+	{
+		return answeredQuestions == LevelController.instance.level.questions.Count;
 	}
 
 }
