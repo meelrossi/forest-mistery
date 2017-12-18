@@ -44,6 +44,7 @@ public class LevelController : MonoBehaviour {
 				questions.Add(q);
 			}
 			level = new Level(json["name"], questions, json["final_puzzle"]);
+			FinalQuestionPanel.instance.setAnswer(json["final_puzzle"]);
 		}
 	}
 }

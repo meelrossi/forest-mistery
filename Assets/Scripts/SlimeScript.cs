@@ -16,7 +16,7 @@ public class SlimeScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("boy"))
+		if (other.gameObject.CompareTag("boy"))
 		{
 			cube.SetActive(true);
 			canInteract = true;
@@ -27,7 +27,7 @@ public class SlimeScript : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other.CompareTag("boy"))
+		if (other.gameObject.CompareTag("boy"))
 		{
 			cube.SetActive(false);
 			notYetPanel.SetActive(false);
@@ -39,10 +39,9 @@ public class SlimeScript : MonoBehaviour {
 	{
 		if (Input.GetKey("e") && canInteract)
 		{
-			Debug.Log("DAsdasd");
 			if (ForestMisteryController.instance.allQuestionsAnswered())
 			{
-				QuestionPanel.instance.setQuestion(LevelController.instance.level.questions[ForestMisteryController.instance.answeredQuestions]);
+				FinalQuestionPanel.instance.openPanel();
 				cube.SetActive(false);
 			}
 			else {
