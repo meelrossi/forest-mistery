@@ -4,8 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Question {
-	string title;
-	string question;
-	List<string> options = new List<string>();
-	int answer;
+	public string title;
+	public string question;
+	public List<string> options = new List<string>();
+	public int answer;
 }

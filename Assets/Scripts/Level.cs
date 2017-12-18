@@ -6,6 +6,6 @@ using UnityEngine;
 [System.Serializable]
 public class Level
 {
-	string name;
-	List<Question> questions = new List<Question>();	
+	public string name;
+	public List<Question> questions = new List<Question>();	
 }

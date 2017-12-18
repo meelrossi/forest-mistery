@@ -28,7 +28,8 @@ public class BallDetection : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (Input.GetKey ("e") && canInteract) {
-			//showTaskCanvas();
+			Debug.Log("dasdad");
+			QuestionPanel.instance.setQuestion(LevelController.instance.level.questions[0]);
 			taskCompleted();
 		}
 	}

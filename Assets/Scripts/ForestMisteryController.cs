@@ -26,9 +26,4 @@ public class ForestMisteryController : MonoBehaviour {
 		score = 0;
 		LevelController.instance.LoadLevelData();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
