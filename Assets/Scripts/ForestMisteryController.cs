@@ -47,6 +47,7 @@ public class ForestMisteryController : MonoBehaviour {
 	public void resetPanels()
 	{
 		searchImage.SetActive(false);
+		interactImage.SetActive(false);
 		FinalQuestionPanel.instance.gameObject.SetActive(false);
 	}
 
@@ -81,13 +82,21 @@ public class ForestMisteryController : MonoBehaviour {
 
 	public void winGame()
 	{
-		winPanel.SetActive(true);
-		resetPanels();
+		StartCoroutine(winRoutine());
 	}
 
 	public void loseGame()
 	{
 		losePanel.SetActive(true);
 		resetPanels();
+	}
+
+	IEnumerator winRoutine()
+	{
+		resetPanels();
+		GameObject.FindWithTag("slime").gameObject.GetComponent<Animation>().Play("Dead");
+		yield return new WaitForSeconds(1f);
+		winPanel.SetActive(true);
+
 	}
 }

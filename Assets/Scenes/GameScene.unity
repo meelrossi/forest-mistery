@@ -1110,7 +1110,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 96747965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.535984, y: 3.6695557, z: 23.36937}
+  m_LocalPosition: {x: 54.79, y: 5.17, z: 30.01}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 674336829}
@@ -1719,7 +1719,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 154123995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 911813616}
+        m_MethodName: onNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &154123995
@@ -5241,6 +5252,10 @@ Prefab:
       propertyPath: m_Name
       value: Cha_Slime (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
+      propertyPath: m_TagString
+      value: slime
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
   m_IsPrefabParent: 0
@@ -7180,6 +7195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3ba57f748ce41548affcb4b3f8b8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  step1: {fileID: 1123324950}
+  step2: {fileID: 1478574674}
+  step3: {fileID: 1479163643}
 --- !u!114 &911813617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11267,15 +11285,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 94.32
+      value: 104.57401
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 150.4
+      value: 151.90044
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 143.55
+      value: 150.19063
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
       propertyPath: m_LocalRotation.x
@@ -11321,6 +11339,10 @@ Prefab:
       propertyPath: m_Animations.Array.data[1]
       value: 
       objectReference: {fileID: 7400000, guid: f524334c8ae52f24b8c15fda83e34712, type: 3}
+    - target: {fileID: 100000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
+      propertyPath: m_TagString
+      value: slime
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81c36e2bb74455a429ffac7ebb8fdf34, type: 3}
   m_IsPrefabParent: 0
