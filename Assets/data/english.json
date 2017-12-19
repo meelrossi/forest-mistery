@@ -1,0 +1,48 @@
+{
+  "name": "MATEMÁTICA",
+  "final_puzzle": "Nemo",
+  "questions": [
+    {
+      "title": "English",
+      "question": "Tom has __ English lesson on Thursdays",
+      "options": [ "your", "her", "his", "me"],
+      "clue": "Animal",
+      "answer": 2
+    },
+    {
+      "title": "English",
+      "question": "This film is __ than his last one.",
+      "options": [ "best", "good", "more", "better"],
+      "clue": "Naranja",
+      "answer": 3
+    },
+    {
+      "title": "English",
+      "question": "I'm a teacher. __ do you do? - Nice to meet you!",
+      "options": [ "How", "What", "Who", "When"],
+      "clue": "Pelicula",
+      "answer": 0
+    },
+    {
+      "title": "English",
+      "question": "Amanda can __ all night long!",
+      "options": [ "dancing", "to dance", "dance", "have dance"],
+      "clue": "Aleta",
+      "answer": 2
+    },
+    {
+      "title": "English",
+      "question": "I’d like __ fruit, please.",
+      "options": [ "some", "any", "a lot", "one"],
+      "clue": "Perdido",
+      "answer": 0
+    },
+    {
+      "title": "English",
+      "question": "Peter can __ English very well.",
+      "options": [ "speaking", "speak", "talk", "to talk"],
+      "clue": "Payaso",
+      "answer": 1
+    }
+  ]
+}
