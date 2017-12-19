@@ -41,6 +41,7 @@ public class ForestMisteryController : MonoBehaviour {
 		losePanel.SetActive(false);
 		searchImage.SetActive(false);
 		interactImage.SetActive(false);
+		StoryPanel.instance.showStory();
 	}
 
 	public void resetPanels()
